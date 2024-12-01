@@ -5,26 +5,39 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'dart:async';
 
-import 'package:artificialstupidity/main.dart';
+import 'package:artificialstupidity/app/app.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Receive SharedMediaFile', (WidgetTester tester) async {
+    final streamController = StreamController<List<SharedMediaFile>>();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    ReceiveSharingIntent.setMockValues(
+        initialMedia: [], mediaStream: streamController.stream);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    final receiveSharingIntent = ReceiveSharingIntent.instance;
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.pumpWidget(App(receiveSharingIntent: receiveSharingIntent));
+
+    streamController.add([
+      SharedMediaFile(
+        path:
+            '/private/var/mobile/Containers/Shared/AppGroup/1C3C4A7D-4D3D-4D3D-4D3D-4D3D4D3D4D3D/WhatsAppChat.zip',
+        type: SharedMediaType.file,
+        mimeType: 'application/zip',
+      )
+    ]);
+
+    await tester.pumpAndSettle();
+
+    debugDumpApp();
+
+    expect(find.text('Plugin example app'), findsOneWidget);
+    expect(find.text('Shared files:'), findsOneWidget);
+    // expect(find.text('WhatsAppChat.zip'), findsOneWidget);
   });
 }
