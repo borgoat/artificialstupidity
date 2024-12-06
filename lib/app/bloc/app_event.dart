@@ -1,15 +1,11 @@
 part of 'app_bloc.dart';
 
-sealed class AppEvent {
-  const AppEvent();
-}
+@freezed
+sealed class AppEvent with _$AppEvent {
+  const factory AppEvent.intentSubscriptionRequested() =
+      AppIntentSubscriptionRequested;
 
-final class AppIntentSubscriptionRequested extends AppEvent {
-  const AppIntentSubscriptionRequested();
-}
-
-final class AppReceivedMediaStream extends AppEvent {
-  AppReceivedMediaStream(this.data);
-
-  final dynamic data;
+  const factory AppEvent.receivedFiles({
+    required List<SharedMediaFile> sharedMediaFiles,
+  }) = AppReceivedFiles;
 }

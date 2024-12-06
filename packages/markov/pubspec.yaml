@@ -1,0 +1,18 @@
+name: markov
+description:
+  A simple Markov chain implementation. Generates words and
+  punctuation. Tuned for tweets.
+version: 2.0.1+2
+author: Filip Hracek <filip.hracek@gmail.com>
+homepage: https://github.com/filiph/markov
+
+environment:
+  sdk: ^3.6.0
+resolution: workspace
+
+dependencies:
+ quiver: ^3.2.2
+ string_scanner: ^1.3.0
+
+dev_dependencies:
+  test: ^1.25.0

@@ -1,21 +1,28 @@
 PODS:
   - Flutter (1.0.0)
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
   - receive_sharing_intent (1.8.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - receive_sharing_intent (from `.symlinks/plugins/receive_sharing_intent/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   receive_sharing_intent:
     :path: ".symlinks/plugins/receive_sharing_intent/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  receive_sharing_intent: 79c848f5b045674ad60b9fea3bafea59962ad2c1
+  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
+  receive_sharing_intent: 222384f00ffe7e952bbfabaa9e3967cb87e5fe00
 
 PODFILE CHECKSUM: f6f3e2da9da1d67123b76062bbf7725da029d042
 
