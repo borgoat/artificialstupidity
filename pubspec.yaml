@@ -80,6 +80,15 @@ dev_dependencies:
   build_runner: ^2.4.13
   freezed: ^2.5.7
   json_serializable: ^6.9.0
+  mocktail: ^1.0.4
+
+dependency_overrides:
+  # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
+  # Until this makes it into a release
+  receive_sharing_intent:
+    git:
+      url: https://github.com/KasemJaffer/receive_sharing_intent
+      ref: master
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
