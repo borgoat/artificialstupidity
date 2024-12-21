@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:artificialstupidity/app/bloc/app_bloc.dart';
 import 'package:artificialstupidity/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 
 class App extends StatelessWidget {
@@ -31,10 +34,25 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    final seedColor = Color.from(
+        alpha: 1, red: 0, green: 1, blue: 0, colorSpace: ColorSpace.displayP3);
+
+    ColorScheme lightColorScheme = ColorScheme.fromSeed(seedColor: seedColor);
+    ColorScheme darkColorScheme =
+        ColorScheme.fromSeed(brightness: Brightness.dark, seedColor: seedColor);
+
+    return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: HomePage(),
+      home: const HomePage(),
+      darkTheme: ThemeData.from(
+        colorScheme: darkColorScheme,
+        textTheme: GoogleFonts.cagliostroTextTheme(ThemeData.dark().textTheme),
+      ),
+      theme: ThemeData.from(
+        colorScheme: lightColorScheme,
+        textTheme: GoogleFonts.cagliostroTextTheme(),
+      ),
     );
   }
 }

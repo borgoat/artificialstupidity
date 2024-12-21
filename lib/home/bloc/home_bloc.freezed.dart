@@ -20,16 +20,19 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function(ChainModel chainModel) deleteChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function(ChainModel chainModel)? deleteChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function(ChainModel chainModel)? deleteChainModel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -37,16 +40,19 @@ mixin _$HomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(HomeGeneratedChainModel value)
         generatedChainModel,
+    required TResult Function(HomeDeleteChainModel value) deleteChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(HomeDeleteChainModel value)? deleteChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeGeneratedChainModel value)? generatedChainModel,
+    TResult Function(HomeDeleteChainModel value)? deleteChainModel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -192,6 +198,7 @@ class _$HomeGeneratedChainModelImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function(ChainModel chainModel) deleteChainModel,
   }) {
     return generatedChainModel(chainModel);
   }
@@ -200,6 +207,7 @@ class _$HomeGeneratedChainModelImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function(ChainModel chainModel)? deleteChainModel,
   }) {
     return generatedChainModel?.call(chainModel);
   }
@@ -208,6 +216,7 @@ class _$HomeGeneratedChainModelImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function(ChainModel chainModel)? deleteChainModel,
     required TResult orElse(),
   }) {
     if (generatedChainModel != null) {
@@ -221,6 +230,7 @@ class _$HomeGeneratedChainModelImpl
   TResult map<TResult extends Object?>({
     required TResult Function(HomeGeneratedChainModel value)
         generatedChainModel,
+    required TResult Function(HomeDeleteChainModel value) deleteChainModel,
   }) {
     return generatedChainModel(this);
   }
@@ -229,6 +239,7 @@ class _$HomeGeneratedChainModelImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(HomeDeleteChainModel value)? deleteChainModel,
   }) {
     return generatedChainModel?.call(this);
   }
@@ -237,6 +248,7 @@ class _$HomeGeneratedChainModelImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeGeneratedChainModel value)? generatedChainModel,
+    TResult Function(HomeDeleteChainModel value)? deleteChainModel,
     required TResult orElse(),
   }) {
     if (generatedChainModel != null) {
@@ -258,6 +270,168 @@ abstract class HomeGeneratedChainModel implements HomeEvent {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeGeneratedChainModelImplCopyWith<_$HomeGeneratedChainModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeDeleteChainModelImplCopyWith<$Res>
+    implements $HomeEventCopyWith<$Res> {
+  factory _$$HomeDeleteChainModelImplCopyWith(_$HomeDeleteChainModelImpl value,
+          $Res Function(_$HomeDeleteChainModelImpl) then) =
+      __$$HomeDeleteChainModelImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ChainModel chainModel});
+
+  @override
+  $ChainModelCopyWith<$Res> get chainModel;
+}
+
+/// @nodoc
+class __$$HomeDeleteChainModelImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HomeDeleteChainModelImpl>
+    implements _$$HomeDeleteChainModelImplCopyWith<$Res> {
+  __$$HomeDeleteChainModelImplCopyWithImpl(_$HomeDeleteChainModelImpl _value,
+      $Res Function(_$HomeDeleteChainModelImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? chainModel = null,
+  }) {
+    return _then(_$HomeDeleteChainModelImpl(
+      chainModel: null == chainModel
+          ? _value.chainModel
+          : chainModel // ignore: cast_nullable_to_non_nullable
+              as ChainModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeDeleteChainModelImpl
+    with DiagnosticableTreeMixin
+    implements HomeDeleteChainModel {
+  const _$HomeDeleteChainModelImpl({required this.chainModel});
+
+  @override
+  final ChainModel chainModel;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeEvent.deleteChainModel(chainModel: $chainModel)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeEvent.deleteChainModel'))
+      ..add(DiagnosticsProperty('chainModel', chainModel));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeDeleteChainModelImpl &&
+            (identical(other.chainModel, chainModel) ||
+                other.chainModel == chainModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, chainModel);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeDeleteChainModelImplCopyWith<_$HomeDeleteChainModelImpl>
+      get copyWith =>
+          __$$HomeDeleteChainModelImplCopyWithImpl<_$HomeDeleteChainModelImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function(ChainModel chainModel) deleteChainModel,
+  }) {
+    return deleteChainModel(chainModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function(ChainModel chainModel)? deleteChainModel,
+  }) {
+    return deleteChainModel?.call(chainModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function(ChainModel chainModel)? deleteChainModel,
+    required TResult orElse(),
+  }) {
+    if (deleteChainModel != null) {
+      return deleteChainModel(chainModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeGeneratedChainModel value)
+        generatedChainModel,
+    required TResult Function(HomeDeleteChainModel value) deleteChainModel,
+  }) {
+    return deleteChainModel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(HomeGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(HomeDeleteChainModel value)? deleteChainModel,
+  }) {
+    return deleteChainModel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeGeneratedChainModel value)? generatedChainModel,
+    TResult Function(HomeDeleteChainModel value)? deleteChainModel,
+    required TResult orElse(),
+  }) {
+    if (deleteChainModel != null) {
+      return deleteChainModel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeDeleteChainModel implements HomeEvent {
+  const factory HomeDeleteChainModel({required final ChainModel chainModel}) =
+      _$HomeDeleteChainModelImpl;
+
+  @override
+  ChainModel get chainModel;
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HomeDeleteChainModelImplCopyWith<_$HomeDeleteChainModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

@@ -11,6 +11,7 @@ part 'home_state.dart';
 class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
   HomeBloc() : super(const HomeState.initial()) {
     on<HomeGeneratedChainModel>(_onGeneratedMarkovChains);
+    on<HomeDeleteChainModel>(_onDeleteChainModel);
   }
 
   void _onGeneratedMarkovChains(
@@ -24,6 +25,23 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
       ]));
     } else {
       emit(HomeState.loadedChainModels(chainModels: [event.chainModel]));
+    }
+  }
+
+  void _onDeleteChainModel(
+    HomeDeleteChainModel event,
+    Emitter<HomeState> emit,
+  ) {
+    if (state is HomeLoadedChainModels) {
+      final newState = (state as HomeLoadedChainModels)
+          .chainModels
+          .where((chainModel) => chainModel != event.chainModel)
+          .toList();
+      if (newState.isNotEmpty) {
+        emit(HomeState.loadedChainModels(chainModels: newState));
+      } else {
+        emit(const HomeState.initial());
+      }
     }
   }
 

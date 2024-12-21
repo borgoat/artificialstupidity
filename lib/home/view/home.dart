@@ -3,8 +3,10 @@ import 'package:artificialstupidity/chat/chat.dart';
 import 'package:artificialstupidity/home/home.dart';
 import 'package:artificialstupidity/util/util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -51,28 +53,75 @@ class HomePage extends StatelessWidget {
                         ));
                       },
                       child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        child: Wrap(
-                          alignment: WrapAlignment.spaceEvenly,
-                          children: [
-                            for (final sender
-                                in state.chainModels[index].markovChains.keys)
-                              Chip(
-                                backgroundColor: getColorFromHashCode(sender)
-                                    .withValues(alpha: 0.2),
-                                label: Text(sender),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Wrap(
+                                alignment: WrapAlignment.spaceBetween,
+                                children: [
+                                  for (final sender in state
+                                      .chainModels[index].markovChains.keys)
+                                    Chip(
+                                      backgroundColor:
+                                          getColorFromHashCode(sender)
+                                              .withValues(alpha: 0.2),
+                                      label: Text(sender),
+                                    ),
+                                ],
                               ),
-                          ],
-                        ),
-                      ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  MenuAnchor(
+                                    builder: (context, controller, child) =>
+                                        IconButton(
+                                      icon: Icon(Icons.adaptive.more),
+                                      onPressed: () => controller.isOpen
+                                          ? controller.close()
+                                          : controller.open(),
+                                    ),
+                                    menuChildren: [
+                                      MenuItemButton(
+                                        closeOnActivate: true,
+                                        leadingIcon: Icon(Icons.delete),
+                                        child: Text(l10n.deleteChat),
+                                        onPressed: () {
+                                          BlocProvider.of<HomeBloc>(context)
+                                              .add(HomeEvent.deleteChainModel(
+                                                  chainModel: state
+                                                      .chainModels[index]));
+                                        },
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
+                          )),
                     ),
                   ),
                 ),
               );
             }
-            return const Center(
-              child: Text('Import some chat!'),
+
+            return FutureBuilder(
+              // TODO: Android version
+              future: rootBundle.loadString('assets/content/ios.md'),
+              builder: (context, snapshot) {
+                if (snapshot.hasData && snapshot.data is String) {
+                  return Markdown(
+                    data: snapshot.data!,
+                  );
+                }
+
+                if (snapshot.hasError) {
+                  return Center(child: Text('Error loading content'));
+                }
+
+                return const Center(child: CircularProgressIndicator());
+              },
             );
           }),
         ),
