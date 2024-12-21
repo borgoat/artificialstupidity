@@ -16,10 +16,19 @@ class WhatsAppParser {
         continue;
       }
 
-      yield WhatsAppMessage(
-        content: message,
-        sender: sender,
-      );
+      try {
+        final systemType = WhatsAppMessageSystemType.fromMessage(message);
+        yield WhatsAppMessageSystem(
+          sender: sender,
+          content: message,
+          type: systemType,
+        );
+      } on Exception {
+        yield WhatsAppMessageUser(
+          sender: sender,
+          content: message,
+        );
+      }
     }
   }
 

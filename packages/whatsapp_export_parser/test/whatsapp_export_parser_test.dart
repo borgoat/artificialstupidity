@@ -35,7 +35,7 @@ void main() {
       group('type ${type.value}', () {
         for (final file in chatsOfType(type)) {
           final relativePath =
-              path.relative(file.path, from: path.join(basePath, type.value));
+          path.relative(file.path, from: path.join(basePath, type.value));
           test('file $relativePath', () async {
             final messages = await parser.readFile(file);
             expect(messages, isNotEmpty, reason: file.path);
@@ -43,5 +43,28 @@ void main() {
         }
       });
     }
+
+    group('system messages', () {
+      final langs = [
+        'EN',
+        'FR',
+        'German',
+        'IT',
+        'Portugal',
+        'Spanish',
+        'UKR',
+      ];
+
+      for (final lang in langs) {
+        test('iOS $lang', () async {
+          final fileName = 'WhatsApp Chat - Elon Musk ($lang).txt';
+          final messages =
+          await parser.readPath(fixture(FixtureType.ios, fileName));
+          final systemMessages = messages.whereType<WhatsAppMessageSystem>();
+
+          expect(systemMessages.length, 19, reason: fileName);
+        });
+      }
+    });
   });
 }

@@ -40,7 +40,7 @@ class ChatBloc extends HydratedBloc<ChatEvent, ChatState> {
 
     if (state is ChatLoadedMessages) {
       emit(ChatState.loadedMessages(
-          messages: [...(state as ChatLoadedMessages).messages, message]));
+          messages: [message, ...(state as ChatLoadedMessages).messages]));
     } else {
       emit(ChatState.loadedMessages(messages: [message]));
     }

@@ -37,9 +37,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   Future<void> _onIntentSubscriptionRequested(
-    AppIntentSubscriptionRequested event,
-    Emitter<AppState> emit,
-  ) async {
+      AppIntentSubscriptionRequested event,
+      Emitter<AppState> emit,) async {
     final mediaStream = _receiveSharingIntent.getMediaStream();
 
     // Get the media sharing coming from outside the app while the app is closed.
@@ -53,18 +52,17 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
     // Listen to media sharing coming from outside the app while the app is in the memory.
     _streamSubscription = mediaStream.listen(
-      (mediaFiles) => add(AppEvent.receivedFiles(sharedMediaFiles: mediaFiles)),
+          (mediaFiles) =>
+          add(AppEvent.receivedFiles(sharedMediaFiles: mediaFiles)),
     );
   }
 
-  Future<void> _onReceivedFiles(
-    AppReceivedFiles event,
-    Emitter<AppState> emit,
-  ) async {
+  Future<void> _onReceivedFiles(AppReceivedFiles event,
+      Emitter<AppState> emit,) async {
     emit(AppState.processingFiles(sharedMediaFiles: event.sharedMediaFiles));
 
     final chainModel = await Isolate.run(
-      () async {
+          () async {
         for (final mediaFile in event.sharedMediaFiles) {
           final chatFile = await _getChatFromSharedMediaFile(mediaFile);
 
@@ -77,6 +75,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           final messages = parser.readString(chatFile);
 
           final messagesBySender = messages
+              .whereType<WhatsAppMessageUser>()
               .groupListsBy((message) => message.sender)
             ..removeWhere((sender, messages) => messages.length < 10);
 
@@ -85,10 +84,17 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
           final markovChainBySender = <String, MarkovChainGenerator>{
             for (final sender in messagesBySender.keys)
-              sender: MarkovChainGenerator(3)
-                ..addStream(Stream.fromIterable(messagesBySender[sender]!
-                    .map((message) => message.content)))
+              sender: MarkovChainGenerator(2)
           };
+
+          // We need to wait for all the streams to be processed before closing
+          await Future.wait([
+            for (final entry in markovChainBySender.entries)
+              entry.value.addStream(Stream.fromIterable(
+                messagesBySender[entry.key]!
+                    .map((message) => message.content),
+              ))
+          ]);
 
           final markovChains = {
             for (final entry in markovChainBySender.entries)

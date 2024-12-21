@@ -36,7 +36,11 @@ class MarkovChain {
 
     while (true) {
       final distribution = edges[state];
-      final nextWord = distribution!.pick(_random);
+      if (distribution == null) {
+        break;
+      }
+
+      final nextWord = distribution.pick(_random);
       final nextToken = Token(nextWord);
       yield nextToken;
       state = TokenSequence.fromPrevious(state, nextToken);

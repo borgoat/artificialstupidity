@@ -1,7 +1,9 @@
 import 'package:artificialstupidity/chat/chat.dart';
 import 'package:artificialstupidity/home/home.dart';
+import 'package:artificialstupidity/util/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class ChatPage extends StatelessWidget {
   final ChainModel chainModel;
@@ -40,13 +42,8 @@ class ChatView extends StatelessWidget {
             if (state is ChatLoadedMessages) {
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
-                  (context, index) => ListTile(
-                    title: Text(state.messages[index].text),
-                    subtitle: Text(state.messages[index].sender),
-                    trailing: Text(
-                      state.messages[index].timestamp.toString(),
-                    ),
-                  ),
+                      (context, index) =>
+                      ChatMessageBubble(message: state.messages[index]),
                   childCount: state.messages.length,
                 ),
               );
@@ -66,6 +63,56 @@ class ChatView extends StatelessWidget {
         },
         icon: const Icon(Icons.generating_tokens_outlined),
         label: const Text('Generate'),
+      ),
+    );
+  }
+}
+
+class ChatMessageBubble extends StatelessWidget {
+  final ChatMessage message;
+  final DateFormat _dateFormat = DateFormat('HH:mm');
+
+  ChatMessageBubble({
+    super.key,
+    required this.message,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = Theme
+        .of(context)
+        .textTheme;
+    final userColor = getColorFromHashCode(message.sender);
+    final cardColor = HSLColor.fromColor(userColor).withLightness(0.95);
+
+    return Padding(
+      padding: EdgeInsets.all(4),
+      child: Card.filled(
+        color: cardColor.toColor(),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(message.text, style: textTheme.bodyLarge),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    message.sender,
+                    style: textTheme.labelMedium?.copyWith(color: userColor),
+                  ),
+                  Text(
+                    _dateFormat.format(message.timestamp),
+                    style: textTheme.labelSmall?.copyWith(
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
