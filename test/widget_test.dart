@@ -10,9 +10,23 @@ import 'dart:async';
 import 'package:artificialstupidity/app/app.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 
+class MockStorage extends Mock implements Storage {}
+
 void main() {
+  late Storage storage;
+
+  setUp(() {
+    storage = MockStorage();
+    when(
+      () => storage.write(any(), any<dynamic>()),
+    ).thenAnswer((_) async {});
+    HydratedBloc.storage = storage;
+  });
+
   testWidgets('Receive SharedMediaFile', (WidgetTester tester) async {
     final streamController = StreamController<List<SharedMediaFile>>();
 
