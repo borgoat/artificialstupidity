@@ -88,6 +88,6 @@ jobs:
           packageName: com.sealambda.artificialstupidity
           releaseFiles: build/app/outputs/bundle/release/app-release.aab
           track: internal
-          status: completed
+          status: draft # Set to 'completed' once we are ready to publish
           mappingFile: build/app/outputs/mapping/release/mapping.txt
           debugSymbols: build/app/intermediates/merged_native_libs/release/mergeReleaseNativeLibs/out/lib
