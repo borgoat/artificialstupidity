@@ -4,7 +4,10 @@ part of 'home_bloc.dart';
 sealed class HomeState with _$HomeState {
   const factory HomeState.initial() = HomeInitial;
 
-  const factory HomeState.markovChains({
-    required List<Map<String, MarkovChain>> markovChains,
-  }) = HomeMarkovChains;
+  const factory HomeState.loadedChainModels({
+    required List<ChainModel> chainModels,
+  }) = HomeLoadedChainModels;
+
+  factory HomeState.fromJson(Map<String, dynamic> json) =>
+      _$HomeStateFromJson(json);
 }

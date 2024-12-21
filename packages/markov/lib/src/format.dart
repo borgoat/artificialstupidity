@@ -1,5 +1,3 @@
-library markov.format;
-
 import 'package:markov/src/token.dart';
 
 /// Takes [tokens] and constructs a [String].

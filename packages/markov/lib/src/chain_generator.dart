@@ -1,5 +1,3 @@
-library markov.chain_generator;
-
 import 'dart:async';
 import 'dart:collection';
 

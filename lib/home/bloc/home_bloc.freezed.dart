@@ -16,41 +16,37 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeEvent {
-  Map<String, MarkovChain> get markovChains =>
-      throw _privateConstructorUsedError;
+  ChainModel get chainModel => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, MarkovChain> markovChains)
-        generatedMarkovChains,
+    required TResult Function(ChainModel chainModel) generatedChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
+    TResult Function(ChainModel chainModel)? generatedChainModel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HomeGeneratedMarkovChains value)
-        generatedMarkovChains,
+    required TResult Function(HomeGeneratedChainModel value)
+        generatedChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HomeGeneratedMarkovChains value)? generatedMarkovChains,
+    TResult? Function(HomeGeneratedChainModel value)? generatedChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HomeGeneratedMarkovChains value)? generatedMarkovChains,
+    TResult Function(HomeGeneratedChainModel value)? generatedChainModel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +63,9 @@ abstract class $HomeEventCopyWith<$Res> {
   factory $HomeEventCopyWith(HomeEvent value, $Res Function(HomeEvent) then) =
       _$HomeEventCopyWithImpl<$Res, HomeEvent>;
   @useResult
-  $Res call({Map<String, MarkovChain> markovChains});
+  $Res call({ChainModel chainModel});
+
+  $ChainModelCopyWith<$Res> get chainModel;
 }
 
 /// @nodoc
@@ -85,36 +83,49 @@ class _$HomeEventCopyWithImpl<$Res, $Val extends HomeEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? markovChains = null,
+    Object? chainModel = null,
   }) {
     return _then(_value.copyWith(
-      markovChains: null == markovChains
-          ? _value.markovChains
-          : markovChains // ignore: cast_nullable_to_non_nullable
-              as Map<String, MarkovChain>,
+      chainModel: null == chainModel
+          ? _value.chainModel
+          : chainModel // ignore: cast_nullable_to_non_nullable
+              as ChainModel,
     ) as $Val);
+  }
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ChainModelCopyWith<$Res> get chainModel {
+    return $ChainModelCopyWith<$Res>(_value.chainModel, (value) {
+      return _then(_value.copyWith(chainModel: value) as $Val);
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$HomeGeneratedMarkovChainsImplCopyWith<$Res>
+abstract class _$$HomeGeneratedChainModelImplCopyWith<$Res>
     implements $HomeEventCopyWith<$Res> {
-  factory _$$HomeGeneratedMarkovChainsImplCopyWith(
-          _$HomeGeneratedMarkovChainsImpl value,
-          $Res Function(_$HomeGeneratedMarkovChainsImpl) then) =
-      __$$HomeGeneratedMarkovChainsImplCopyWithImpl<$Res>;
+  factory _$$HomeGeneratedChainModelImplCopyWith(
+          _$HomeGeneratedChainModelImpl value,
+          $Res Function(_$HomeGeneratedChainModelImpl) then) =
+      __$$HomeGeneratedChainModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, MarkovChain> markovChains});
+  $Res call({ChainModel chainModel});
+
+  @override
+  $ChainModelCopyWith<$Res> get chainModel;
 }
 
 /// @nodoc
-class __$$HomeGeneratedMarkovChainsImplCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$HomeGeneratedMarkovChainsImpl>
-    implements _$$HomeGeneratedMarkovChainsImplCopyWith<$Res> {
-  __$$HomeGeneratedMarkovChainsImplCopyWithImpl(
-      _$HomeGeneratedMarkovChainsImpl _value,
-      $Res Function(_$HomeGeneratedMarkovChainsImpl) _then)
+class __$$HomeGeneratedChainModelImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HomeGeneratedChainModelImpl>
+    implements _$$HomeGeneratedChainModelImplCopyWith<$Res> {
+  __$$HomeGeneratedChainModelImplCopyWithImpl(
+      _$HomeGeneratedChainModelImpl _value,
+      $Res Function(_$HomeGeneratedChainModelImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of HomeEvent
@@ -122,96 +133,85 @@ class __$$HomeGeneratedMarkovChainsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? markovChains = null,
+    Object? chainModel = null,
   }) {
-    return _then(_$HomeGeneratedMarkovChainsImpl(
-      markovChains: null == markovChains
-          ? _value._markovChains
-          : markovChains // ignore: cast_nullable_to_non_nullable
-              as Map<String, MarkovChain>,
+    return _then(_$HomeGeneratedChainModelImpl(
+      chainModel: null == chainModel
+          ? _value.chainModel
+          : chainModel // ignore: cast_nullable_to_non_nullable
+              as ChainModel,
     ));
   }
 }
 
 /// @nodoc
 
-class _$HomeGeneratedMarkovChainsImpl
+class _$HomeGeneratedChainModelImpl
     with DiagnosticableTreeMixin
-    implements HomeGeneratedMarkovChains {
-  const _$HomeGeneratedMarkovChainsImpl(
-      {required final Map<String, MarkovChain> markovChains})
-      : _markovChains = markovChains;
+    implements HomeGeneratedChainModel {
+  const _$HomeGeneratedChainModelImpl({required this.chainModel});
 
-  final Map<String, MarkovChain> _markovChains;
   @override
-  Map<String, MarkovChain> get markovChains {
-    if (_markovChains is EqualUnmodifiableMapView) return _markovChains;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_markovChains);
-  }
+  final ChainModel chainModel;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeEvent.generatedMarkovChains(markovChains: $markovChains)';
+    return 'HomeEvent.generatedChainModel(chainModel: $chainModel)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'HomeEvent.generatedMarkovChains'))
-      ..add(DiagnosticsProperty('markovChains', markovChains));
+      ..add(DiagnosticsProperty('type', 'HomeEvent.generatedChainModel'))
+      ..add(DiagnosticsProperty('chainModel', chainModel));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomeGeneratedMarkovChainsImpl &&
-            const DeepCollectionEquality()
-                .equals(other._markovChains, _markovChains));
+            other is _$HomeGeneratedChainModelImpl &&
+            (identical(other.chainModel, chainModel) ||
+                other.chainModel == chainModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_markovChains));
+  int get hashCode => Object.hash(runtimeType, chainModel);
 
   /// Create a copy of HomeEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$HomeGeneratedMarkovChainsImplCopyWith<_$HomeGeneratedMarkovChainsImpl>
-      get copyWith => __$$HomeGeneratedMarkovChainsImplCopyWithImpl<
-          _$HomeGeneratedMarkovChainsImpl>(this, _$identity);
+  _$$HomeGeneratedChainModelImplCopyWith<_$HomeGeneratedChainModelImpl>
+      get copyWith => __$$HomeGeneratedChainModelImplCopyWithImpl<
+          _$HomeGeneratedChainModelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Map<String, MarkovChain> markovChains)
-        generatedMarkovChains,
+    required TResult Function(ChainModel chainModel) generatedChainModel,
   }) {
-    return generatedMarkovChains(markovChains);
+    return generatedChainModel(chainModel);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
   }) {
-    return generatedMarkovChains?.call(markovChains);
+    return generatedChainModel?.call(chainModel);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
+    TResult Function(ChainModel chainModel)? generatedChainModel,
     required TResult orElse(),
   }) {
-    if (generatedMarkovChains != null) {
-      return generatedMarkovChains(markovChains);
+    if (generatedChainModel != null) {
+      return generatedChainModel(chainModel);
     }
     return orElse();
   }
@@ -219,47 +219,59 @@ class _$HomeGeneratedMarkovChainsImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HomeGeneratedMarkovChains value)
-        generatedMarkovChains,
+    required TResult Function(HomeGeneratedChainModel value)
+        generatedChainModel,
   }) {
-    return generatedMarkovChains(this);
+    return generatedChainModel(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HomeGeneratedMarkovChains value)? generatedMarkovChains,
+    TResult? Function(HomeGeneratedChainModel value)? generatedChainModel,
   }) {
-    return generatedMarkovChains?.call(this);
+    return generatedChainModel?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HomeGeneratedMarkovChains value)? generatedMarkovChains,
+    TResult Function(HomeGeneratedChainModel value)? generatedChainModel,
     required TResult orElse(),
   }) {
-    if (generatedMarkovChains != null) {
-      return generatedMarkovChains(this);
+    if (generatedChainModel != null) {
+      return generatedChainModel(this);
     }
     return orElse();
   }
 }
 
-abstract class HomeGeneratedMarkovChains implements HomeEvent {
-  const factory HomeGeneratedMarkovChains(
-          {required final Map<String, MarkovChain> markovChains}) =
-      _$HomeGeneratedMarkovChainsImpl;
+abstract class HomeGeneratedChainModel implements HomeEvent {
+  const factory HomeGeneratedChainModel(
+      {required final ChainModel chainModel}) = _$HomeGeneratedChainModelImpl;
 
   @override
-  Map<String, MarkovChain> get markovChains;
+  ChainModel get chainModel;
 
   /// Create a copy of HomeEvent
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HomeGeneratedMarkovChainsImplCopyWith<_$HomeGeneratedMarkovChainsImpl>
+  _$$HomeGeneratedChainModelImplCopyWith<_$HomeGeneratedChainModelImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+HomeState _$HomeStateFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType']) {
+    case 'initial':
+      return HomeInitial.fromJson(json);
+    case 'loadedChainModels':
+      return HomeLoadedChainModels.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'HomeState',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
 }
 
 /// @nodoc
@@ -267,43 +279,44 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<Map<String, MarkovChain>> markovChains)
-        markovChains,
+    required TResult Function(List<ChainModel> chainModels) loadedChainModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<Map<String, MarkovChain>> markovChains)?
-        markovChains,
+    TResult? Function(List<ChainModel> chainModels)? loadedChainModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<Map<String, MarkovChain>> markovChains)? markovChains,
+    TResult Function(List<ChainModel> chainModels)? loadedChainModels,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeInitial value) initial,
-    required TResult Function(HomeMarkovChains value) markovChains,
+    required TResult Function(HomeLoadedChainModels value) loadedChainModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeInitial value)? initial,
-    TResult? Function(HomeMarkovChains value)? markovChains,
+    TResult? Function(HomeLoadedChainModels value)? loadedChainModels,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeInitial value)? initial,
-    TResult Function(HomeMarkovChains value)? markovChains,
+    TResult Function(HomeLoadedChainModels value)? loadedChainModels,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this HomeState to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -346,9 +359,15 @@ class __$$HomeInitialImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
-  const _$HomeInitialImpl();
+  const _$HomeInitialImpl({final String? $type}) : $type = $type ?? 'initial';
+
+  factory _$HomeInitialImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HomeInitialImplFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -367,6 +386,7 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
         (other.runtimeType == runtimeType && other is _$HomeInitialImpl);
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -374,8 +394,7 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<Map<String, MarkovChain>> markovChains)
-        markovChains,
+    required TResult Function(List<ChainModel> chainModels) loadedChainModels,
   }) {
     return initial();
   }
@@ -384,8 +403,7 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<Map<String, MarkovChain>> markovChains)?
-        markovChains,
+    TResult? Function(List<ChainModel> chainModels)? loadedChainModels,
   }) {
     return initial?.call();
   }
@@ -394,7 +412,7 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<Map<String, MarkovChain>> markovChains)? markovChains,
+    TResult Function(List<ChainModel> chainModels)? loadedChainModels,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -407,7 +425,7 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeInitial value) initial,
-    required TResult Function(HomeMarkovChains value) markovChains,
+    required TResult Function(HomeLoadedChainModels value) loadedChainModels,
   }) {
     return initial(this);
   }
@@ -416,7 +434,7 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeInitial value)? initial,
-    TResult? Function(HomeMarkovChains value)? markovChains,
+    TResult? Function(HomeLoadedChainModels value)? loadedChainModels,
   }) {
     return initial?.call(this);
   }
@@ -425,7 +443,7 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeInitial value)? initial,
-    TResult Function(HomeMarkovChains value)? markovChains,
+    TResult Function(HomeLoadedChainModels value)? loadedChainModels,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -433,27 +451,38 @@ class _$HomeInitialImpl with DiagnosticableTreeMixin implements HomeInitial {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$HomeInitialImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class HomeInitial implements HomeState {
   const factory HomeInitial() = _$HomeInitialImpl;
+
+  factory HomeInitial.fromJson(Map<String, dynamic> json) =
+      _$HomeInitialImpl.fromJson;
 }
 
 /// @nodoc
-abstract class _$$HomeMarkovChainsImplCopyWith<$Res> {
-  factory _$$HomeMarkovChainsImplCopyWith(_$HomeMarkovChainsImpl value,
-          $Res Function(_$HomeMarkovChainsImpl) then) =
-      __$$HomeMarkovChainsImplCopyWithImpl<$Res>;
+abstract class _$$HomeLoadedChainModelsImplCopyWith<$Res> {
+  factory _$$HomeLoadedChainModelsImplCopyWith(
+          _$HomeLoadedChainModelsImpl value,
+          $Res Function(_$HomeLoadedChainModelsImpl) then) =
+      __$$HomeLoadedChainModelsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Map<String, MarkovChain>> markovChains});
+  $Res call({List<ChainModel> chainModels});
 }
 
 /// @nodoc
-class __$$HomeMarkovChainsImplCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$HomeMarkovChainsImpl>
-    implements _$$HomeMarkovChainsImplCopyWith<$Res> {
-  __$$HomeMarkovChainsImplCopyWithImpl(_$HomeMarkovChainsImpl _value,
-      $Res Function(_$HomeMarkovChainsImpl) _then)
+class __$$HomeLoadedChainModelsImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeLoadedChainModelsImpl>
+    implements _$$HomeLoadedChainModelsImplCopyWith<$Res> {
+  __$$HomeLoadedChainModelsImplCopyWithImpl(_$HomeLoadedChainModelsImpl _value,
+      $Res Function(_$HomeLoadedChainModelsImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of HomeState
@@ -461,98 +490,104 @@ class __$$HomeMarkovChainsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? markovChains = null,
+    Object? chainModels = null,
   }) {
-    return _then(_$HomeMarkovChainsImpl(
-      markovChains: null == markovChains
-          ? _value._markovChains
-          : markovChains // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, MarkovChain>>,
+    return _then(_$HomeLoadedChainModelsImpl(
+      chainModels: null == chainModels
+          ? _value._chainModels
+          : chainModels // ignore: cast_nullable_to_non_nullable
+              as List<ChainModel>,
     ));
   }
 }
 
 /// @nodoc
-
-class _$HomeMarkovChainsImpl
+@JsonSerializable()
+class _$HomeLoadedChainModelsImpl
     with DiagnosticableTreeMixin
-    implements HomeMarkovChains {
-  const _$HomeMarkovChainsImpl(
-      {required final List<Map<String, MarkovChain>> markovChains})
-      : _markovChains = markovChains;
+    implements HomeLoadedChainModels {
+  const _$HomeLoadedChainModelsImpl(
+      {required final List<ChainModel> chainModels, final String? $type})
+      : _chainModels = chainModels,
+        $type = $type ?? 'loadedChainModels';
 
-  final List<Map<String, MarkovChain>> _markovChains;
+  factory _$HomeLoadedChainModelsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HomeLoadedChainModelsImplFromJson(json);
+
+  final List<ChainModel> _chainModels;
   @override
-  List<Map<String, MarkovChain>> get markovChains {
-    if (_markovChains is EqualUnmodifiableListView) return _markovChains;
+  List<ChainModel> get chainModels {
+    if (_chainModels is EqualUnmodifiableListView) return _chainModels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_markovChains);
+    return EqualUnmodifiableListView(_chainModels);
   }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState.markovChains(markovChains: $markovChains)';
+    return 'HomeState.loadedChainModels(chainModels: $chainModels)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'HomeState.markovChains'))
-      ..add(DiagnosticsProperty('markovChains', markovChains));
+      ..add(DiagnosticsProperty('type', 'HomeState.loadedChainModels'))
+      ..add(DiagnosticsProperty('chainModels', chainModels));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HomeMarkovChainsImpl &&
+            other is _$HomeLoadedChainModelsImpl &&
             const DeepCollectionEquality()
-                .equals(other._markovChains, _markovChains));
+                .equals(other._chainModels, _chainModels));
   }
 
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_markovChains));
+      runtimeType, const DeepCollectionEquality().hash(_chainModels));
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$HomeMarkovChainsImplCopyWith<_$HomeMarkovChainsImpl> get copyWith =>
-      __$$HomeMarkovChainsImplCopyWithImpl<_$HomeMarkovChainsImpl>(
-          this, _$identity);
+  _$$HomeLoadedChainModelsImplCopyWith<_$HomeLoadedChainModelsImpl>
+      get copyWith => __$$HomeLoadedChainModelsImplCopyWithImpl<
+          _$HomeLoadedChainModelsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(List<Map<String, MarkovChain>> markovChains)
-        markovChains,
+    required TResult Function(List<ChainModel> chainModels) loadedChainModels,
   }) {
-    return markovChains(this.markovChains);
+    return loadedChainModels(chainModels);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(List<Map<String, MarkovChain>> markovChains)?
-        markovChains,
+    TResult? Function(List<ChainModel> chainModels)? loadedChainModels,
   }) {
-    return markovChains?.call(this.markovChains);
+    return loadedChainModels?.call(chainModels);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(List<Map<String, MarkovChain>> markovChains)? markovChains,
+    TResult Function(List<ChainModel> chainModels)? loadedChainModels,
     required TResult orElse(),
   }) {
-    if (markovChains != null) {
-      return markovChains(this.markovChains);
+    if (loadedChainModels != null) {
+      return loadedChainModels(chainModels);
     }
     return orElse();
   }
@@ -561,44 +596,54 @@ class _$HomeMarkovChainsImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HomeInitial value) initial,
-    required TResult Function(HomeMarkovChains value) markovChains,
+    required TResult Function(HomeLoadedChainModels value) loadedChainModels,
   }) {
-    return markovChains(this);
+    return loadedChainModels(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HomeInitial value)? initial,
-    TResult? Function(HomeMarkovChains value)? markovChains,
+    TResult? Function(HomeLoadedChainModels value)? loadedChainModels,
   }) {
-    return markovChains?.call(this);
+    return loadedChainModels?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeInitial value)? initial,
-    TResult Function(HomeMarkovChains value)? markovChains,
+    TResult Function(HomeLoadedChainModels value)? loadedChainModels,
     required TResult orElse(),
   }) {
-    if (markovChains != null) {
-      return markovChains(this);
+    if (loadedChainModels != null) {
+      return loadedChainModels(this);
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$HomeLoadedChainModelsImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class HomeMarkovChains implements HomeState {
-  const factory HomeMarkovChains(
-          {required final List<Map<String, MarkovChain>> markovChains}) =
-      _$HomeMarkovChainsImpl;
+abstract class HomeLoadedChainModels implements HomeState {
+  const factory HomeLoadedChainModels(
+          {required final List<ChainModel> chainModels}) =
+      _$HomeLoadedChainModelsImpl;
 
-  List<Map<String, MarkovChain>> get markovChains;
+  factory HomeLoadedChainModels.fromJson(Map<String, dynamic> json) =
+      _$HomeLoadedChainModelsImpl.fromJson;
+
+  List<ChainModel> get chainModels;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$HomeMarkovChainsImplCopyWith<_$HomeMarkovChainsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$HomeLoadedChainModelsImplCopyWith<_$HomeLoadedChainModelsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

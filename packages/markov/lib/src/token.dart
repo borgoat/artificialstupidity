@@ -1,12 +1,15 @@
-library markov.token;
+import 'package:json_annotation/json_annotation.dart';
+
+part 'token.g.dart';
 
 /// A single token of a markov chain, represented as a string.
 ///
 /// This implementation assumes a word-like token.
+@JsonSerializable()
 class Token {
-  static final _noSpaceBefore = RegExp(r'^[\.!?,:\-]+$');
+  static final _noSpaceBefore = RegExp(r'^[.!?,:\-]+$');
 
-  static final _noSpaceAfter = RegExp(r'^(["]+|\-\-)$');
+  static final _noSpaceAfter = RegExp(r'^("+|--)$');
 
   /// The string representation of the token.
   final String string;
@@ -29,4 +32,8 @@ class Token {
   }
 
   Token._(this.string, this.skipsSpaceBefore, this.skipsSpaceAfter);
+
+  factory Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TokenToJson(this);
 }

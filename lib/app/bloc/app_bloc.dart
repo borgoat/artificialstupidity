@@ -4,7 +4,9 @@ import 'dart:io';
 import 'dart:isolate';
 
 import 'package:archive/archive_io.dart';
+import 'package:artificialstupidity/home/home.dart';
 import 'package:collection/collection.dart';
+import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart'; // ignore: unused_import
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -61,10 +63,15 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   ) async {
     emit(AppState.processingFiles(sharedMediaFiles: event.sharedMediaFiles));
 
-    final markovChains = await Isolate.run(
+    final chainModel = await Isolate.run(
       () async {
         for (final mediaFile in event.sharedMediaFiles) {
           final chatFile = await _getChatFromSharedMediaFile(mediaFile);
+
+          final id = sha256.convert(utf8.encode(chatFile)).toString();
+
+          // TODO Should probablu split here: if the ID already exists, we should
+          // not generate the chain model again.
 
           final parser = WhatsAppParser();
           final messages = parser.readString(chatFile);
@@ -88,17 +95,17 @@ class AppBloc extends Bloc<AppEvent, AppState> {
               entry.key: await entry.value.close()
           };
 
-          return markovChains;
+          return ChainModel(id: id, markovChains: markovChains);
         }
       },
     );
 
-    if (markovChains == null) {
-      emit(const AppState.failedToGenerateMarkovChains());
+    if (chainModel == null) {
+      emit(const AppState.failedToGenerateChainModel());
       return;
     }
 
-    emit(AppState.generatedMarkovChains(markovChains: markovChains));
+    emit(AppState.generatedChainModel(chainModel: chainModel));
   }
 }
 

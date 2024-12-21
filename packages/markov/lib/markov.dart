@@ -4,7 +4,7 @@
 /// The Markov chain library.
 ///
 /// TODO: more dartdocs.
-library markov;
+library;
 
 export 'src/chain.dart';
 export 'src/chain_generator.dart';

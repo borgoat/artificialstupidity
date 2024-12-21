@@ -376,27 +376,24 @@ mixin _$AppState {
     required TResult Function() initial,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         processingFiles,
-    required TResult Function(Map<String, MarkovChain> markovChains)
-        generatedMarkovChains,
-    required TResult Function() failedToGenerateMarkovChains,
+    required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function() failedToGenerateChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult? Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult? Function()? failedToGenerateMarkovChains,
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function()? failedToGenerateChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult Function()? failedToGenerateMarkovChains,
+    TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function()? failedToGenerateChainModel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -404,28 +401,27 @@ mixin _$AppState {
   TResult map<TResult extends Object?>({
     required TResult Function(AppInitial value) initial,
     required TResult Function(AppProcessingFiles value) processingFiles,
-    required TResult Function(AppGeneratedMarkovChains value)
-        generatedMarkovChains,
-    required TResult Function(AppFailedToGenerateMarkovChains value)
-        failedToGenerateMarkovChains,
+    required TResult Function(AppGeneratedChainModel value) generatedChainModel,
+    required TResult Function(AppFailedToGenerateChainModel value)
+        failedToGenerateChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppInitial value)? initial,
     TResult? Function(AppProcessingFiles value)? processingFiles,
-    TResult? Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult? Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult? Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppInitial value)? initial,
     TResult Function(AppProcessingFiles value)? processingFiles,
-    TResult Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -501,9 +497,8 @@ class _$AppInitialImpl with DiagnosticableTreeMixin implements AppInitial {
     required TResult Function() initial,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         processingFiles,
-    required TResult Function(Map<String, MarkovChain> markovChains)
-        generatedMarkovChains,
-    required TResult Function() failedToGenerateMarkovChains,
+    required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function() failedToGenerateChainModel,
   }) {
     return initial();
   }
@@ -513,9 +508,8 @@ class _$AppInitialImpl with DiagnosticableTreeMixin implements AppInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult? Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult? Function()? failedToGenerateMarkovChains,
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function()? failedToGenerateChainModel,
   }) {
     return initial?.call();
   }
@@ -525,9 +519,8 @@ class _$AppInitialImpl with DiagnosticableTreeMixin implements AppInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult Function()? failedToGenerateMarkovChains,
+    TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function()? failedToGenerateChainModel,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -541,10 +534,9 @@ class _$AppInitialImpl with DiagnosticableTreeMixin implements AppInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(AppInitial value) initial,
     required TResult Function(AppProcessingFiles value) processingFiles,
-    required TResult Function(AppGeneratedMarkovChains value)
-        generatedMarkovChains,
-    required TResult Function(AppFailedToGenerateMarkovChains value)
-        failedToGenerateMarkovChains,
+    required TResult Function(AppGeneratedChainModel value) generatedChainModel,
+    required TResult Function(AppFailedToGenerateChainModel value)
+        failedToGenerateChainModel,
   }) {
     return initial(this);
   }
@@ -554,9 +546,9 @@ class _$AppInitialImpl with DiagnosticableTreeMixin implements AppInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppInitial value)? initial,
     TResult? Function(AppProcessingFiles value)? processingFiles,
-    TResult? Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult? Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult? Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
   }) {
     return initial?.call(this);
   }
@@ -566,9 +558,9 @@ class _$AppInitialImpl with DiagnosticableTreeMixin implements AppInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppInitial value)? initial,
     TResult Function(AppProcessingFiles value)? processingFiles,
-    TResult Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -674,9 +666,8 @@ class _$AppProcessingFilesImpl
     required TResult Function() initial,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         processingFiles,
-    required TResult Function(Map<String, MarkovChain> markovChains)
-        generatedMarkovChains,
-    required TResult Function() failedToGenerateMarkovChains,
+    required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function() failedToGenerateChainModel,
   }) {
     return processingFiles(sharedMediaFiles);
   }
@@ -686,9 +677,8 @@ class _$AppProcessingFilesImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult? Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult? Function()? failedToGenerateMarkovChains,
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function()? failedToGenerateChainModel,
   }) {
     return processingFiles?.call(sharedMediaFiles);
   }
@@ -698,9 +688,8 @@ class _$AppProcessingFilesImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult Function()? failedToGenerateMarkovChains,
+    TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function()? failedToGenerateChainModel,
     required TResult orElse(),
   }) {
     if (processingFiles != null) {
@@ -714,10 +703,9 @@ class _$AppProcessingFilesImpl
   TResult map<TResult extends Object?>({
     required TResult Function(AppInitial value) initial,
     required TResult Function(AppProcessingFiles value) processingFiles,
-    required TResult Function(AppGeneratedMarkovChains value)
-        generatedMarkovChains,
-    required TResult Function(AppFailedToGenerateMarkovChains value)
-        failedToGenerateMarkovChains,
+    required TResult Function(AppGeneratedChainModel value) generatedChainModel,
+    required TResult Function(AppFailedToGenerateChainModel value)
+        failedToGenerateChainModel,
   }) {
     return processingFiles(this);
   }
@@ -727,9 +715,9 @@ class _$AppProcessingFilesImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppInitial value)? initial,
     TResult? Function(AppProcessingFiles value)? processingFiles,
-    TResult? Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult? Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult? Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
   }) {
     return processingFiles?.call(this);
   }
@@ -739,9 +727,9 @@ class _$AppProcessingFilesImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppInitial value)? initial,
     TResult Function(AppProcessingFiles value)? processingFiles,
-    TResult Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
     required TResult orElse(),
   }) {
     if (processingFiles != null) {
@@ -766,22 +754,24 @@ abstract class AppProcessingFiles implements AppState {
 }
 
 /// @nodoc
-abstract class _$$AppGeneratedMarkovChainsImplCopyWith<$Res> {
-  factory _$$AppGeneratedMarkovChainsImplCopyWith(
-          _$AppGeneratedMarkovChainsImpl value,
-          $Res Function(_$AppGeneratedMarkovChainsImpl) then) =
-      __$$AppGeneratedMarkovChainsImplCopyWithImpl<$Res>;
+abstract class _$$AppGeneratedChainModelImplCopyWith<$Res> {
+  factory _$$AppGeneratedChainModelImplCopyWith(
+          _$AppGeneratedChainModelImpl value,
+          $Res Function(_$AppGeneratedChainModelImpl) then) =
+      __$$AppGeneratedChainModelImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Map<String, MarkovChain> markovChains});
+  $Res call({ChainModel chainModel});
+
+  $ChainModelCopyWith<$Res> get chainModel;
 }
 
 /// @nodoc
-class __$$AppGeneratedMarkovChainsImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppGeneratedMarkovChainsImpl>
-    implements _$$AppGeneratedMarkovChainsImplCopyWith<$Res> {
-  __$$AppGeneratedMarkovChainsImplCopyWithImpl(
-      _$AppGeneratedMarkovChainsImpl _value,
-      $Res Function(_$AppGeneratedMarkovChainsImpl) _then)
+class __$$AppGeneratedChainModelImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppGeneratedChainModelImpl>
+    implements _$$AppGeneratedChainModelImplCopyWith<$Res> {
+  __$$AppGeneratedChainModelImplCopyWithImpl(
+      _$AppGeneratedChainModelImpl _value,
+      $Res Function(_$AppGeneratedChainModelImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AppState
@@ -789,68 +779,70 @@ class __$$AppGeneratedMarkovChainsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? markovChains = null,
+    Object? chainModel = null,
   }) {
-    return _then(_$AppGeneratedMarkovChainsImpl(
-      markovChains: null == markovChains
-          ? _value._markovChains
-          : markovChains // ignore: cast_nullable_to_non_nullable
-              as Map<String, MarkovChain>,
+    return _then(_$AppGeneratedChainModelImpl(
+      chainModel: null == chainModel
+          ? _value.chainModel
+          : chainModel // ignore: cast_nullable_to_non_nullable
+              as ChainModel,
     ));
+  }
+
+  /// Create a copy of AppState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ChainModelCopyWith<$Res> get chainModel {
+    return $ChainModelCopyWith<$Res>(_value.chainModel, (value) {
+      return _then(_value.copyWith(chainModel: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$AppGeneratedMarkovChainsImpl
+class _$AppGeneratedChainModelImpl
     with DiagnosticableTreeMixin
-    implements AppGeneratedMarkovChains {
-  const _$AppGeneratedMarkovChainsImpl(
-      {required final Map<String, MarkovChain> markovChains})
-      : _markovChains = markovChains;
+    implements AppGeneratedChainModel {
+  const _$AppGeneratedChainModelImpl({required this.chainModel});
 
-  final Map<String, MarkovChain> _markovChains;
   @override
-  Map<String, MarkovChain> get markovChains {
-    if (_markovChains is EqualUnmodifiableMapView) return _markovChains;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_markovChains);
-  }
+  final ChainModel chainModel;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState.generatedMarkovChains(markovChains: $markovChains)';
+    return 'AppState.generatedChainModel(chainModel: $chainModel)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'AppState.generatedMarkovChains'))
-      ..add(DiagnosticsProperty('markovChains', markovChains));
+      ..add(DiagnosticsProperty('type', 'AppState.generatedChainModel'))
+      ..add(DiagnosticsProperty('chainModel', chainModel));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AppGeneratedMarkovChainsImpl &&
-            const DeepCollectionEquality()
-                .equals(other._markovChains, _markovChains));
+            other is _$AppGeneratedChainModelImpl &&
+            (identical(other.chainModel, chainModel) ||
+                other.chainModel == chainModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_markovChains));
+  int get hashCode => Object.hash(runtimeType, chainModel);
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppGeneratedMarkovChainsImplCopyWith<_$AppGeneratedMarkovChainsImpl>
-      get copyWith => __$$AppGeneratedMarkovChainsImplCopyWithImpl<
-          _$AppGeneratedMarkovChainsImpl>(this, _$identity);
+  _$$AppGeneratedChainModelImplCopyWith<_$AppGeneratedChainModelImpl>
+      get copyWith => __$$AppGeneratedChainModelImplCopyWithImpl<
+          _$AppGeneratedChainModelImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -858,11 +850,10 @@ class _$AppGeneratedMarkovChainsImpl
     required TResult Function() initial,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         processingFiles,
-    required TResult Function(Map<String, MarkovChain> markovChains)
-        generatedMarkovChains,
-    required TResult Function() failedToGenerateMarkovChains,
+    required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function() failedToGenerateChainModel,
   }) {
-    return generatedMarkovChains(markovChains);
+    return generatedChainModel(chainModel);
   }
 
   @override
@@ -870,11 +861,10 @@ class _$AppGeneratedMarkovChainsImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult? Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult? Function()? failedToGenerateMarkovChains,
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function()? failedToGenerateChainModel,
   }) {
-    return generatedMarkovChains?.call(markovChains);
+    return generatedChainModel?.call(chainModel);
   }
 
   @override
@@ -882,13 +872,12 @@ class _$AppGeneratedMarkovChainsImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult Function()? failedToGenerateMarkovChains,
+    TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function()? failedToGenerateChainModel,
     required TResult orElse(),
   }) {
-    if (generatedMarkovChains != null) {
-      return generatedMarkovChains(markovChains);
+    if (generatedChainModel != null) {
+      return generatedChainModel(chainModel);
     }
     return orElse();
   }
@@ -898,12 +887,11 @@ class _$AppGeneratedMarkovChainsImpl
   TResult map<TResult extends Object?>({
     required TResult Function(AppInitial value) initial,
     required TResult Function(AppProcessingFiles value) processingFiles,
-    required TResult Function(AppGeneratedMarkovChains value)
-        generatedMarkovChains,
-    required TResult Function(AppFailedToGenerateMarkovChains value)
-        failedToGenerateMarkovChains,
+    required TResult Function(AppGeneratedChainModel value) generatedChainModel,
+    required TResult Function(AppFailedToGenerateChainModel value)
+        failedToGenerateChainModel,
   }) {
-    return generatedMarkovChains(this);
+    return generatedChainModel(this);
   }
 
   @override
@@ -911,11 +899,11 @@ class _$AppGeneratedMarkovChainsImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppInitial value)? initial,
     TResult? Function(AppProcessingFiles value)? processingFiles,
-    TResult? Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult? Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult? Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
   }) {
-    return generatedMarkovChains?.call(this);
+    return generatedChainModel?.call(this);
   }
 
   @override
@@ -923,47 +911,46 @@ class _$AppGeneratedMarkovChainsImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppInitial value)? initial,
     TResult Function(AppProcessingFiles value)? processingFiles,
-    TResult Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
     required TResult orElse(),
   }) {
-    if (generatedMarkovChains != null) {
-      return generatedMarkovChains(this);
+    if (generatedChainModel != null) {
+      return generatedChainModel(this);
     }
     return orElse();
   }
 }
 
-abstract class AppGeneratedMarkovChains implements AppState {
-  const factory AppGeneratedMarkovChains(
-          {required final Map<String, MarkovChain> markovChains}) =
-      _$AppGeneratedMarkovChainsImpl;
+abstract class AppGeneratedChainModel implements AppState {
+  const factory AppGeneratedChainModel({required final ChainModel chainModel}) =
+      _$AppGeneratedChainModelImpl;
 
-  Map<String, MarkovChain> get markovChains;
+  ChainModel get chainModel;
 
   /// Create a copy of AppState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AppGeneratedMarkovChainsImplCopyWith<_$AppGeneratedMarkovChainsImpl>
+  _$$AppGeneratedChainModelImplCopyWith<_$AppGeneratedChainModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AppFailedToGenerateMarkovChainsImplCopyWith<$Res> {
-  factory _$$AppFailedToGenerateMarkovChainsImplCopyWith(
-          _$AppFailedToGenerateMarkovChainsImpl value,
-          $Res Function(_$AppFailedToGenerateMarkovChainsImpl) then) =
-      __$$AppFailedToGenerateMarkovChainsImplCopyWithImpl<$Res>;
+abstract class _$$AppFailedToGenerateChainModelImplCopyWith<$Res> {
+  factory _$$AppFailedToGenerateChainModelImplCopyWith(
+          _$AppFailedToGenerateChainModelImpl value,
+          $Res Function(_$AppFailedToGenerateChainModelImpl) then) =
+      __$$AppFailedToGenerateChainModelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AppFailedToGenerateMarkovChainsImplCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$AppFailedToGenerateMarkovChainsImpl>
-    implements _$$AppFailedToGenerateMarkovChainsImplCopyWith<$Res> {
-  __$$AppFailedToGenerateMarkovChainsImplCopyWithImpl(
-      _$AppFailedToGenerateMarkovChainsImpl _value,
-      $Res Function(_$AppFailedToGenerateMarkovChainsImpl) _then)
+class __$$AppFailedToGenerateChainModelImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppFailedToGenerateChainModelImpl>
+    implements _$$AppFailedToGenerateChainModelImplCopyWith<$Res> {
+  __$$AppFailedToGenerateChainModelImplCopyWithImpl(
+      _$AppFailedToGenerateChainModelImpl _value,
+      $Res Function(_$AppFailedToGenerateChainModelImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AppState
@@ -972,28 +959,28 @@ class __$$AppFailedToGenerateMarkovChainsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppFailedToGenerateMarkovChainsImpl
+class _$AppFailedToGenerateChainModelImpl
     with DiagnosticableTreeMixin
-    implements AppFailedToGenerateMarkovChains {
-  const _$AppFailedToGenerateMarkovChainsImpl();
+    implements AppFailedToGenerateChainModel {
+  const _$AppFailedToGenerateChainModelImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState.failedToGenerateMarkovChains()';
+    return 'AppState.failedToGenerateChainModel()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties.add(
-        DiagnosticsProperty('type', 'AppState.failedToGenerateMarkovChains'));
+        DiagnosticsProperty('type', 'AppState.failedToGenerateChainModel'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AppFailedToGenerateMarkovChainsImpl);
+            other is _$AppFailedToGenerateChainModelImpl);
   }
 
   @override
@@ -1005,11 +992,10 @@ class _$AppFailedToGenerateMarkovChainsImpl
     required TResult Function() initial,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         processingFiles,
-    required TResult Function(Map<String, MarkovChain> markovChains)
-        generatedMarkovChains,
-    required TResult Function() failedToGenerateMarkovChains,
+    required TResult Function(ChainModel chainModel) generatedChainModel,
+    required TResult Function() failedToGenerateChainModel,
   }) {
-    return failedToGenerateMarkovChains();
+    return failedToGenerateChainModel();
   }
 
   @override
@@ -1017,11 +1003,10 @@ class _$AppFailedToGenerateMarkovChainsImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult? Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult? Function()? failedToGenerateMarkovChains,
+    TResult? Function(ChainModel chainModel)? generatedChainModel,
+    TResult? Function()? failedToGenerateChainModel,
   }) {
-    return failedToGenerateMarkovChains?.call();
+    return failedToGenerateChainModel?.call();
   }
 
   @override
@@ -1029,13 +1014,12 @@ class _$AppFailedToGenerateMarkovChainsImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? processingFiles,
-    TResult Function(Map<String, MarkovChain> markovChains)?
-        generatedMarkovChains,
-    TResult Function()? failedToGenerateMarkovChains,
+    TResult Function(ChainModel chainModel)? generatedChainModel,
+    TResult Function()? failedToGenerateChainModel,
     required TResult orElse(),
   }) {
-    if (failedToGenerateMarkovChains != null) {
-      return failedToGenerateMarkovChains();
+    if (failedToGenerateChainModel != null) {
+      return failedToGenerateChainModel();
     }
     return orElse();
   }
@@ -1045,12 +1029,11 @@ class _$AppFailedToGenerateMarkovChainsImpl
   TResult map<TResult extends Object?>({
     required TResult Function(AppInitial value) initial,
     required TResult Function(AppProcessingFiles value) processingFiles,
-    required TResult Function(AppGeneratedMarkovChains value)
-        generatedMarkovChains,
-    required TResult Function(AppFailedToGenerateMarkovChains value)
-        failedToGenerateMarkovChains,
+    required TResult Function(AppGeneratedChainModel value) generatedChainModel,
+    required TResult Function(AppFailedToGenerateChainModel value)
+        failedToGenerateChainModel,
   }) {
-    return failedToGenerateMarkovChains(this);
+    return failedToGenerateChainModel(this);
   }
 
   @override
@@ -1058,11 +1041,11 @@ class _$AppFailedToGenerateMarkovChainsImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppInitial value)? initial,
     TResult? Function(AppProcessingFiles value)? processingFiles,
-    TResult? Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult? Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult? Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult? Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
   }) {
-    return failedToGenerateMarkovChains?.call(this);
+    return failedToGenerateChainModel?.call(this);
   }
 
   @override
@@ -1070,19 +1053,19 @@ class _$AppFailedToGenerateMarkovChainsImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppInitial value)? initial,
     TResult Function(AppProcessingFiles value)? processingFiles,
-    TResult Function(AppGeneratedMarkovChains value)? generatedMarkovChains,
-    TResult Function(AppFailedToGenerateMarkovChains value)?
-        failedToGenerateMarkovChains,
+    TResult Function(AppGeneratedChainModel value)? generatedChainModel,
+    TResult Function(AppFailedToGenerateChainModel value)?
+        failedToGenerateChainModel,
     required TResult orElse(),
   }) {
-    if (failedToGenerateMarkovChains != null) {
-      return failedToGenerateMarkovChains(this);
+    if (failedToGenerateChainModel != null) {
+      return failedToGenerateChainModel(this);
     }
     return orElse();
   }
 }
 
-abstract class AppFailedToGenerateMarkovChains implements AppState {
-  const factory AppFailedToGenerateMarkovChains() =
-      _$AppFailedToGenerateMarkovChainsImpl;
+abstract class AppFailedToGenerateChainModel implements AppState {
+  const factory AppFailedToGenerateChainModel() =
+      _$AppFailedToGenerateChainModelImpl;
 }

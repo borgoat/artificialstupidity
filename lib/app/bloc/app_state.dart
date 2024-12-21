@@ -8,10 +8,11 @@ sealed class AppState with _$AppState {
     required List<SharedMediaFile> sharedMediaFiles,
   }) = AppProcessingFiles;
 
-  const factory AppState.generatedMarkovChains({
-    required Map<String, MarkovChain> markovChains,
-  }) = AppGeneratedMarkovChains;
+  // TODO: This state should probably move to the home bloc
+  const factory AppState.generatedChainModel({
+    required ChainModel chainModel,
+  }) = AppGeneratedChainModel;
 
-  const factory AppState.failedToGenerateMarkovChains() =
-      AppFailedToGenerateMarkovChains;
+  const factory AppState.failedToGenerateChainModel() =
+      AppFailedToGenerateChainModel;
 }

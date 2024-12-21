@@ -1,24 +1,25 @@
-library markov.probability_distribution;
-
 import 'dart:math';
 
-/// A probability distribution of instances of type [T].
-class ProbabilityDistribution<T> {
-  final _records = <T, int>{};
+import 'package:json_annotation/json_annotation.dart';
 
-  int _total = 0;
+part 'probability_distribution.g.dart';
+
+/// A probability distribution of instances of type [T].
+@JsonSerializable()
+class ProbabilityDistribution {
+  Map<String, int> records = {};
 
   /// Total number of instances of type [T] that have been recorded
   /// via [record].
-  int get total => _total;
+  int total = 0;
 
   /// Picks a random instance of type [T] according to the probability
   /// distribution.
-  T pick(Random random) {
-    final randomNumber = random.nextInt(_total);
+  String pick(Random random) {
+    final randomNumber = random.nextInt(total);
     var currentIndex = 0;
-    for (final key in _records.keys) {
-      final currentCount = _records[key];
+    for (final key in records.keys) {
+      final currentCount = records[key];
       if (randomNumber < currentIndex + currentCount!) {
         return key;
       }
@@ -29,12 +30,19 @@ class ProbabilityDistribution<T> {
   }
 
   /// Add an instance of type [T].
-  void record(T word, {int count = 1}) {
-    _records.update(
+  void record(String word, {int count = 1}) {
+    records.update(
       word,
       (value) => value + count,
       ifAbsent: () => count,
     );
-    _total += count;
+    total += count;
   }
+
+  ProbabilityDistribution();
+
+  factory ProbabilityDistribution.fromJson(Map<String, dynamic> json) =>
+      _$ProbabilityDistributionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProbabilityDistributionToJson(this);
 }

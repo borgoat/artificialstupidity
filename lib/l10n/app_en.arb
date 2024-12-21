@@ -1,7 +1,4 @@
 {
-  "addNewChat": "Add new chat",
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "addNewChat": "Import chat",
+  "appName": "Markovaldo"
 }
