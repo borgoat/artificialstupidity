@@ -1,10 +1,10 @@
 import 'package:artificialstupidity/app/app.dart';
 import 'package:artificialstupidity/chat/chat.dart';
 import 'package:artificialstupidity/home/home.dart';
+import 'package:artificialstupidity/util/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:markov/markov.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -39,21 +39,34 @@ class HomePage extends StatelessWidget {
             if (state is HomeLoadedChainModels) {
               return ListView.builder(
                 itemCount: state.chainModels.length,
-                itemBuilder: (context, index) => ListTile(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          ChatPage(chainModel: state.chainModels[index]),
-                    ));
-                  },
-                  title: Text(state.chainModels[index].id),
-                  subtitle: Text(
-                    'Words: ${format(
-                      state.chainModels[index].markovChains.values.first
-                          .generate()
-                          .takeWhile((e) => e.string != "\n")
-                          .toList(),
-                    )}',
+                itemBuilder: (context, index) => Padding(
+                  padding: EdgeInsets.all(12),
+                  child: Card(
+                    clipBehavior: Clip.antiAlias,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              ChatPage(chainModel: state.chainModels[index]),
+                        ));
+                      },
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        child: Wrap(
+                          alignment: WrapAlignment.spaceEvenly,
+                          children: [
+                            for (final sender
+                                in state.chainModels[index].markovChains.keys)
+                              Chip(
+                                backgroundColor: getColorFromHashCode(sender)
+                                    .withValues(alpha: 0.2),
+                                label: Text(sender),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               );
