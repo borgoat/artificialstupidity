@@ -33,6 +33,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
 
                 <data android:mimeType="text/plain"/>
+                <data android:mimeType="application/zip"/>
             </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.

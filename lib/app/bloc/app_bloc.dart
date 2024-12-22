@@ -37,8 +37,9 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   }
 
   Future<void> _onIntentSubscriptionRequested(
-      AppIntentSubscriptionRequested event,
-      Emitter<AppState> emit,) async {
+    AppIntentSubscriptionRequested event,
+    Emitter<AppState> emit,
+  ) async {
     final mediaStream = _receiveSharingIntent.getMediaStream();
 
     // Get the media sharing coming from outside the app while the app is closed.
@@ -52,17 +53,18 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
     // Listen to media sharing coming from outside the app while the app is in the memory.
     _streamSubscription = mediaStream.listen(
-          (mediaFiles) =>
-          add(AppEvent.receivedFiles(sharedMediaFiles: mediaFiles)),
+      (mediaFiles) => add(AppEvent.receivedFiles(sharedMediaFiles: mediaFiles)),
     );
   }
 
-  Future<void> _onReceivedFiles(AppReceivedFiles event,
-      Emitter<AppState> emit,) async {
+  Future<void> _onReceivedFiles(
+    AppReceivedFiles event,
+    Emitter<AppState> emit,
+  ) async {
     emit(AppState.processingFiles(sharedMediaFiles: event.sharedMediaFiles));
 
     final chainModel = await Isolate.run(
-          () async {
+      () async {
         for (final mediaFile in event.sharedMediaFiles) {
           final chatFile = await _getChatFromSharedMediaFile(mediaFile);
 
@@ -91,8 +93,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           await Future.wait([
             for (final entry in markovChainBySender.entries)
               entry.value.addStream(Stream.fromIterable(
-                messagesBySender[entry.key]!
-                    .map((message) => message.content),
+                messagesBySender[entry.key]!.map((message) => message.content),
               ))
           ]);
 
@@ -120,7 +121,7 @@ Future<String> _getChatFromSharedMediaFile(SharedMediaFile mediaFile) async {
     final inputStream = InputFileStream(mediaFile.path);
     final archive = ZipDecoder().decodeBuffer(inputStream);
     for (final file in archive) {
-      if (file.name == '_chat.txt') {
+      if (file.name.endsWith('.txt')) {
         final outputStream = OutputStream();
         file.writeContent(outputStream);
         return utf8.decode(outputStream.getBytes());
