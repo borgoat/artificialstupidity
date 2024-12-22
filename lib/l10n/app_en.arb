@@ -1,5 +1,6 @@
 {
   "addNewChat": "Import chat",
   "appName": "Artificial Stupidity",
-  "deleteChat": "Delete chat"
+  "deleteChat": "Delete chat",
+  "loadExample": "Load example"
 }

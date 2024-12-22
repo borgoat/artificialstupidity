@@ -8,6 +8,7 @@ import 'package:artificialstupidity/home/home.dart';
 import 'package:collection/collection.dart';
 import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart'; // ignore: unused_import
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:markov/markov.dart';
@@ -28,6 +29,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
         super(const AppState.initial()) {
     on<AppIntentSubscriptionRequested>(_onIntentSubscriptionRequested);
     on<AppReceivedFiles>(_onReceivedFiles);
+    on<AppLoadExample>(_onLoadExample);
   }
 
   @override
@@ -67,42 +69,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       () async {
         for (final mediaFile in event.sharedMediaFiles) {
           final chatFile = await _getChatFromSharedMediaFile(mediaFile);
-
-          final id = sha256.convert(utf8.encode(chatFile)).toString();
-
-          // TODO Should probablu split here: if the ID already exists, we should
-          // not generate the chain model again.
-
-          final parser = WhatsAppParser();
-          final messages = parser.readString(chatFile);
-
-          final messagesBySender = messages
-              .whereType<WhatsAppMessageUser>()
-              .groupListsBy((message) => message.sender)
-            ..removeWhere((sender, messages) => messages.length < 10);
-
-          // TODO This should be notified to the user, as it may be a mistake.
-          // Maybe it should be configurable.
-
-          final markovChainBySender = <String, MarkovChainGenerator>{
-            for (final sender in messagesBySender.keys)
-              sender: MarkovChainGenerator(2)
-          };
-
-          // We need to wait for all the streams to be processed before closing
-          await Future.wait([
-            for (final entry in markovChainBySender.entries)
-              entry.value.addStream(Stream.fromIterable(
-                messagesBySender[entry.key]!.map((message) => message.content),
-              ))
-          ]);
-
-          final markovChains = {
-            for (final entry in markovChainBySender.entries)
-              entry.key: await entry.value.close()
-          };
-
-          return ChainModel(id: id, markovChains: markovChains);
+          return _generateChainModelFromChat(chatFile);
         }
       },
     );
@@ -114,6 +81,66 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
     emit(AppState.generatedChainModel(chainModel: chainModel));
   }
+
+  Future<void> _onLoadExample(
+    AppLoadExample event,
+    Emitter<AppState> emit,
+  ) async {
+    emit(AppState.processingFiles(sharedMediaFiles: []));
+
+    final chatFile =
+        await rootBundle.loadString('assets/content/example_chat.txt');
+
+    final chainModel = await Isolate.run(
+      () async {
+        return _generateChainModelFromChat(chatFile);
+      },
+    );
+
+    if (chainModel == null) {
+      emit(const AppState.failedToGenerateChainModel());
+      return;
+    }
+
+    emit(AppState.generatedChainModel(chainModel: chainModel));
+  }
+}
+
+Future<ChainModel> _generateChainModelFromChat(String chatFile) async {
+  final id = sha256.convert(utf8.encode(chatFile)).toString();
+
+  // TODO Should probablu split here: if the ID already exists, we should
+  // not generate the chain model again.
+
+  final parser = WhatsAppParser();
+  final messages = parser.readString(chatFile);
+
+  final messagesBySender = messages
+      .whereType<WhatsAppMessageUser>()
+      .groupListsBy((message) => message.sender)
+    ..removeWhere((sender, messages) => messages.length < 10);
+
+  // TODO This should be notified to the user, as it may be a mistake.
+  // Maybe it should be configurable.
+
+  final markovChainBySender = <String, MarkovChainGenerator>{
+    for (final sender in messagesBySender.keys) sender: MarkovChainGenerator(2)
+  };
+
+  // We need to wait for all the streams to be processed before closing
+  await Future.wait([
+    for (final entry in markovChainBySender.entries)
+      entry.value.addStream(Stream.fromIterable(
+        messagesBySender[entry.key]!.map((message) => message.content),
+      ))
+  ]);
+
+  final markovChains = {
+    for (final entry in markovChainBySender.entries)
+      entry.key: await entry.value.close()
+  };
+
+  return ChainModel(id: id, markovChains: markovChains);
 }
 
 Future<String> _getChatFromSharedMediaFile(SharedMediaFile mediaFile) async {

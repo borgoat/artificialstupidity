@@ -29,20 +29,14 @@ class ChatView extends StatelessWidget {
         slivers: [
           SliverAppBar(
             title: Text('Chat'),
-            floating: true,
-            snap: true,
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.refresh),
-                onPressed: () {},
-              ),
-            ],
+            pinned: true,
+            expandedHeight: 200,
           ),
           BlocBuilder<ChatBloc, ChatState>(builder: (context, state) {
             if (state is ChatLoadedMessages) {
               return SliverList(
                 delegate: SliverChildBuilderDelegate(
-                      (context, index) =>
+                  (context, index) =>
                       ChatMessageBubble(message: state.messages[index]),
                   childCount: state.messages.length,
                 ),
@@ -79,11 +73,9 @@ class ChatMessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme
-        .of(context)
-        .textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final userColor = getColorFromHashCode(message.sender);
-    final cardColor = HSLColor.fromColor(userColor).withLightness(0.95);
+    final cardColor = HSLColor.fromColor(userColor).withAlpha(0.2);
 
     return Padding(
       padding: EdgeInsets.all(4),

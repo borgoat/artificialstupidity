@@ -21,18 +21,21 @@ mixin _$AppEvent {
     required TResult Function() intentSubscriptionRequested,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         receivedFiles,
+    required TResult Function() loadExample,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? intentSubscriptionRequested,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult? Function()? loadExample,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? intentSubscriptionRequested,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult Function()? loadExample,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,6 +44,7 @@ mixin _$AppEvent {
     required TResult Function(AppIntentSubscriptionRequested value)
         intentSubscriptionRequested,
     required TResult Function(AppReceivedFiles value) receivedFiles,
+    required TResult Function(AppLoadExample value) loadExample,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +52,7 @@ mixin _$AppEvent {
     TResult? Function(AppIntentSubscriptionRequested value)?
         intentSubscriptionRequested,
     TResult? Function(AppReceivedFiles value)? receivedFiles,
+    TResult? Function(AppLoadExample value)? loadExample,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$AppEvent {
     TResult Function(AppIntentSubscriptionRequested value)?
         intentSubscriptionRequested,
     TResult Function(AppReceivedFiles value)? receivedFiles,
+    TResult Function(AppLoadExample value)? loadExample,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,6 +142,7 @@ class _$AppIntentSubscriptionRequestedImpl
     required TResult Function() intentSubscriptionRequested,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         receivedFiles,
+    required TResult Function() loadExample,
   }) {
     return intentSubscriptionRequested();
   }
@@ -145,6 +152,7 @@ class _$AppIntentSubscriptionRequestedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? intentSubscriptionRequested,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult? Function()? loadExample,
   }) {
     return intentSubscriptionRequested?.call();
   }
@@ -154,6 +162,7 @@ class _$AppIntentSubscriptionRequestedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? intentSubscriptionRequested,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult Function()? loadExample,
     required TResult orElse(),
   }) {
     if (intentSubscriptionRequested != null) {
@@ -168,6 +177,7 @@ class _$AppIntentSubscriptionRequestedImpl
     required TResult Function(AppIntentSubscriptionRequested value)
         intentSubscriptionRequested,
     required TResult Function(AppReceivedFiles value) receivedFiles,
+    required TResult Function(AppLoadExample value) loadExample,
   }) {
     return intentSubscriptionRequested(this);
   }
@@ -178,6 +188,7 @@ class _$AppIntentSubscriptionRequestedImpl
     TResult? Function(AppIntentSubscriptionRequested value)?
         intentSubscriptionRequested,
     TResult? Function(AppReceivedFiles value)? receivedFiles,
+    TResult? Function(AppLoadExample value)? loadExample,
   }) {
     return intentSubscriptionRequested?.call(this);
   }
@@ -188,6 +199,7 @@ class _$AppIntentSubscriptionRequestedImpl
     TResult Function(AppIntentSubscriptionRequested value)?
         intentSubscriptionRequested,
     TResult Function(AppReceivedFiles value)? receivedFiles,
+    TResult Function(AppLoadExample value)? loadExample,
     required TResult orElse(),
   }) {
     if (intentSubscriptionRequested != null) {
@@ -294,6 +306,7 @@ class _$AppReceivedFilesImpl
     required TResult Function() intentSubscriptionRequested,
     required TResult Function(List<SharedMediaFile> sharedMediaFiles)
         receivedFiles,
+    required TResult Function() loadExample,
   }) {
     return receivedFiles(sharedMediaFiles);
   }
@@ -303,6 +316,7 @@ class _$AppReceivedFilesImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? intentSubscriptionRequested,
     TResult? Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult? Function()? loadExample,
   }) {
     return receivedFiles?.call(sharedMediaFiles);
   }
@@ -312,6 +326,7 @@ class _$AppReceivedFilesImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? intentSubscriptionRequested,
     TResult Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult Function()? loadExample,
     required TResult orElse(),
   }) {
     if (receivedFiles != null) {
@@ -326,6 +341,7 @@ class _$AppReceivedFilesImpl
     required TResult Function(AppIntentSubscriptionRequested value)
         intentSubscriptionRequested,
     required TResult Function(AppReceivedFiles value) receivedFiles,
+    required TResult Function(AppLoadExample value) loadExample,
   }) {
     return receivedFiles(this);
   }
@@ -336,6 +352,7 @@ class _$AppReceivedFilesImpl
     TResult? Function(AppIntentSubscriptionRequested value)?
         intentSubscriptionRequested,
     TResult? Function(AppReceivedFiles value)? receivedFiles,
+    TResult? Function(AppLoadExample value)? loadExample,
   }) {
     return receivedFiles?.call(this);
   }
@@ -346,6 +363,7 @@ class _$AppReceivedFilesImpl
     TResult Function(AppIntentSubscriptionRequested value)?
         intentSubscriptionRequested,
     TResult Function(AppReceivedFiles value)? receivedFiles,
+    TResult Function(AppLoadExample value)? loadExample,
     required TResult orElse(),
   }) {
     if (receivedFiles != null) {
@@ -367,6 +385,129 @@ abstract class AppReceivedFiles implements AppEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppReceivedFilesImplCopyWith<_$AppReceivedFilesImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AppLoadExampleImplCopyWith<$Res> {
+  factory _$$AppLoadExampleImplCopyWith(_$AppLoadExampleImpl value,
+          $Res Function(_$AppLoadExampleImpl) then) =
+      __$$AppLoadExampleImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AppLoadExampleImplCopyWithImpl<$Res>
+    extends _$AppEventCopyWithImpl<$Res, _$AppLoadExampleImpl>
+    implements _$$AppLoadExampleImplCopyWith<$Res> {
+  __$$AppLoadExampleImplCopyWithImpl(
+      _$AppLoadExampleImpl _value, $Res Function(_$AppLoadExampleImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AppLoadExampleImpl
+    with DiagnosticableTreeMixin
+    implements AppLoadExample {
+  const _$AppLoadExampleImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AppEvent.loadExample()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AppEvent.loadExample'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AppLoadExampleImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() intentSubscriptionRequested,
+    required TResult Function(List<SharedMediaFile> sharedMediaFiles)
+        receivedFiles,
+    required TResult Function() loadExample,
+  }) {
+    return loadExample();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? intentSubscriptionRequested,
+    TResult? Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult? Function()? loadExample,
+  }) {
+    return loadExample?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? intentSubscriptionRequested,
+    TResult Function(List<SharedMediaFile> sharedMediaFiles)? receivedFiles,
+    TResult Function()? loadExample,
+    required TResult orElse(),
+  }) {
+    if (loadExample != null) {
+      return loadExample();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppIntentSubscriptionRequested value)
+        intentSubscriptionRequested,
+    required TResult Function(AppReceivedFiles value) receivedFiles,
+    required TResult Function(AppLoadExample value) loadExample,
+  }) {
+    return loadExample(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppIntentSubscriptionRequested value)?
+        intentSubscriptionRequested,
+    TResult? Function(AppReceivedFiles value)? receivedFiles,
+    TResult? Function(AppLoadExample value)? loadExample,
+  }) {
+    return loadExample?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppIntentSubscriptionRequested value)?
+        intentSubscriptionRequested,
+    TResult Function(AppReceivedFiles value)? receivedFiles,
+    TResult Function(AppLoadExample value)? loadExample,
+    required TResult orElse(),
+  }) {
+    if (loadExample != null) {
+      return loadExample(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppLoadExample implements AppEvent {
+  const factory AppLoadExample() = _$AppLoadExampleImpl;
 }
 
 /// @nodoc

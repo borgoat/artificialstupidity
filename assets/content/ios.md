@@ -34,3 +34,6 @@ Now wait a few seconds (or minutes, depending on the chat size)
 for the app to process the chat.
 
 
+---
+
+### If you're not ready to export your chat yet, you can try the app with a sample chat.

@@ -2,7 +2,7 @@ import 'package:flutter/painting.dart';
 
 /// Returns a color based on the hash code of the given object.
 Color getColorFromHashCode(Object object) =>
-    HSLColor.fromAHSL(1, object.hashCode % 360, 0.2, 0.5).toColor();
+    HSLColor.fromAHSL(1, object.hashCode % 360, 0.8, 0.5).toColor();
 
 /// Returns a color based on the given index and total.
 Color getEquidistantColor(int index, int total) {

@@ -8,4 +8,6 @@ sealed class AppEvent with _$AppEvent {
   const factory AppEvent.receivedFiles({
     required List<SharedMediaFile> sharedMediaFiles,
   }) = AppReceivedFiles;
+
+  const factory AppEvent.loadExample() = AppLoadExample;
 }

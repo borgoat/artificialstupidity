@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:artificialstupidity/app/app.dart';
 import 'package:artificialstupidity/chat/chat.dart';
 import 'package:artificialstupidity/home/home.dart';
@@ -106,13 +108,36 @@ class HomePage extends StatelessWidget {
               );
             }
 
+            // TODO: to support web or other platforms, we need to let the user
+            //  select the platform
+            final explanationFile = Platform.isAndroid
+                ? 'assets/content/android.md'
+                : 'assets/content/ios.md';
+
             return FutureBuilder(
               // TODO: Android version
-              future: rootBundle.loadString('assets/content/ios.md'),
+              future: rootBundle.loadString(explanationFile),
               builder: (context, snapshot) {
                 if (snapshot.hasData && snapshot.data is String) {
-                  return Markdown(
-                    data: snapshot.data!,
+                  return ListView(
+                    padding: EdgeInsets.all(16),
+                    children: [
+                      MarkdownBody(
+                        data: snapshot.data!,
+                        selectable: true,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        child: FilledButton.icon(
+                          onPressed: () {
+                            BlocProvider.of<AppBloc>(context)
+                                .add(AppLoadExample());
+                          },
+                          label: Text(l10n.loadExample),
+                          icon: Icon(Icons.abc),
+                        ),
+                      ),
+                    ],
                   );
                 }
 

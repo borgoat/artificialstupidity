@@ -1,4 +1,5 @@
 {
   "addNewChat": "Importa chat",
-  "deleteChat": "Elimina chat"
+  "deleteChat": "Elimina chat",
+  "loadExample": "Carica esempio"
 }
