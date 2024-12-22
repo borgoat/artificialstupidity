@@ -28,6 +28,8 @@ There's no need to include media files, so tap on "Without Media".
 
 Select this app as the target for the exported chat.
 
+![Select "Artificial Stupidity"](resource:assets/images/ios_5.webp)
+
 Now wait a few seconds (or minutes, depending on the chat size)
 for the app to process the chat.
 
