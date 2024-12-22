@@ -829,7 +829,7 @@
 		};
 		A3112D612CF1CB5E00CE4DD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C815D1CBEB8F2FAC24DBAC1 /* Pods-ShareExtension.debug.xcconfig */;
+			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -870,7 +870,7 @@
 		};
 		A3112D622CF1CB5E00CE4DD4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94E40CD63D516FA03D905EEC /* Pods-ShareExtension.release.xcconfig */;
+			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -908,7 +908,7 @@
 		};
 		A3112D632CF1CB5E00CE4DD4 /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F802BFB445D0CE83991AA8EF /* Pods-ShareExtension.profile.xcconfig */;
+			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
